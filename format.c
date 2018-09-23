@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 11:40:09 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/22 17:14:07 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/09/22 17:39:32 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,5 @@ int		ft_itoabase(long long input, int base)
 	out[i] = '\0';
 	ft_putstr(out, i);
 	free (out);
-	return (i);
+	return (i - 1);
 }
