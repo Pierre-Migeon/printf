@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 21:03:02 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/22 17:21:31 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/09/22 17:47:13 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int		main()
 	i = -10;
 	j = 0;
 
-	printf("this is norm: %d\n", i);
-	b_printf("this is mine: %d\n", i);
+printf("%d", printf("this is norm: %d\n", i));
+	printf("%d", b_printf("this is mine: %d\n", i));
 
 	printf("this is norm: %p\n", &str);
 	b_printf("this is mine: %p\n", &str);
