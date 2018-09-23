@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 16:40:28 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/21 20:49:43 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/09/22 17:14:28 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int		b_printf(const char *restrict format, ...);
 int		ft_router(char c, va_list params);
-int		ft_itoabase(long input, int base);
+int		ft_itoabase(long long input, int base);
 int		ft_isflag(char c);
 int		ft_lputstr(const char *str);
 int		ft_lputchar(char c);

@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 11:40:09 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/21 21:06:27 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/09/22 17:14:07 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_putstr(char *str, int i)
 		write(1, &str[--i], 1);
 }
 
-int		ft_itoabase(long input, int base)
+int		ft_itoabase(long long input, int base)
 {
 	int i;
 	int remain;
@@ -69,7 +69,7 @@ int		ft_itoabase(long input, int base)
 	sign = input;
 	while (input != 0)
 	{
-		remain = input % base;
+		remain = (input < 0) ? -(input % base) : input % base;
 		if (remain < 10)
 			out[i++] = (char)(remain + '0');
 		else

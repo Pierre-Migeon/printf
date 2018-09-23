@@ -6,7 +6,7 @@
 #    By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 16:09:15 by pmigeon           #+#    #+#              #
-#    Updated: 2018/09/19 15:22:45 by pmigeon          ###   ########.fr        #
+#    Updated: 2018/09/22 17:01:47 by pmigeon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,11 @@ all: $(NAME)
 
 $(NAME): 
 	$(COMPILER) $(FLAGS) $(SOURCES) -I $(HEADER)
-	$(COMPILER) $(OFILE) -o prog
 	ar rc $(LIBNAME) $(OFILE)
 	ranlib $(LIBNAME)
+
+compile: re 
+	$(COMPILER) $(OFILE) -o prog
 
 clean:
 	/bin/rm -f $(OFILE)
