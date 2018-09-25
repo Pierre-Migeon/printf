@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 20:46:24 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/22 17:44:23 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/09/24 20:30:45 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,9 @@ int		b_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] == '%' && ft_isflag(format[i + 1]))
-		{
 			ret += ft_router(format[i + 1], params);
-		}
 		else if (format[i - 1] != '%')
-		{
-			write(1, &format[i], 1);
-			ret++;
-		}
+			ret += write(1, &format[i], 1);
 		i++;
 	}
 	va_end(params);
