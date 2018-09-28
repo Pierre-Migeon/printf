@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 11:40:09 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/27 14:06:51 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/09/28 15:46:55 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int		ft_router(char	c, va_list params)
 		return (ft_itoabase(va_arg(params, unsigned int), 10));
 	else if (c == 'x' || c == 'X')
 		return (ft_itoabase(va_arg(params, unsigned long), 16));
-	else if (c == '%')
-		return (ft_lputchar(c));
 	return (0);
 }
 
