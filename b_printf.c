@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 20:46:24 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/24 20:30:45 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/09/27 17:36:19 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int		ft_lputstr(const char *str)
 	int i;
 
 	i = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	while (str[i])
 		write(1, &str[i++], 1);
 	return (i);
