@@ -6,19 +6,19 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 11:40:09 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/09/28 15:46:55 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/01 12:57:58 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "b_libft.h"
 
-int		ft_router(char	c, va_list params)
+int		ft_router(char c, va_list params)
 {
 	if (c == 's')
 		return (ft_lputstr(va_arg(params, char *)));
 	else if (c == 'c')
 		return (ft_lputchar((char)va_arg(params, int)));
-	else if (c == 'd' || c== 'i')
+	else if (c == 'd' || c == 'i')
 		return (ft_itoabase(va_arg(params, int), 10));
 	else if (c == 'p')
 	{
@@ -55,10 +55,10 @@ void	ft_putstr(char *str, int i)
 
 int		ft_itoabase(long long input, int base)
 {
-	int i;
-	int remain;
-	char *out;
-	int sign;
+	int		i;
+	int		remain;
+	char	*out;
+	int		sign;
 
 	out = (char *)malloc(sizeof(char) * (ft_numlen(input, base) + 1));
 	i = 0;
@@ -78,6 +78,6 @@ int		ft_itoabase(long long input, int base)
 		out[i++] = '-';
 	out[i] = '\0';
 	ft_putstr(out, i);
-	free (out);
+	free(out);
 	return (i);
 }
