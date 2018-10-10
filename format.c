@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 11:40:09 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/08 20:27:00 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/10 14:23:20 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_router(char c, va_list params)
 		return (ft_itoabase((unsigned long)va_arg(params, void *), 16) + 2);
 	}
 	else if (c == 'o')
-		return (ft_itoabase(va_arg(params, unsigned int), 8));
+		return (ft_itoabase(va_arg(params, unsigned long), 8));
 	else if (c == 'u')
 		return (ft_itoabase(va_arg(params, unsigned int), 10));
 	else if (c == 'x')
