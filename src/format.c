@@ -6,20 +6,43 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 11:40:09 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/10 14:23:20 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/11 14:01:21 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "b_libft.h"
+#include "../includes/b_printf.h"
+
+size_t	ft_strlen(const char *s)
+{
+	size_t length;
+
+	length = 0;
+	while (s[length])
+		length++;
+	return (length);
+}
 
 int		ft_router(char c, va_list params)
 {
+	int	i;
+
+	i = 0;
 	if (c == 's')
 		return (ft_lputstr(va_arg(params, char *)));
 	else if (c == 'c')
 		return (ft_lputchar((char)va_arg(params, int)));
 	else if (c == 'd' || c == 'i')
-		return (ft_itoabase(va_arg(params, int), 10));
+	{
+		i = va_arg(params, int);
+		if (i < 0)
+		{
+			if (i == -2147483648)
+				return (ft_lputstr("-2147483648"));
+			write(1, "-", 1);
+			return (1 + ft_itoabase(-i, 10));
+		}
+		return (ft_itoabase(i, 10));
+	}
 	else if (c == 'p')
 	{
 		write(1, "0x", 2);
@@ -34,50 +57,41 @@ int		ft_router(char c, va_list params)
 	return (0);
 }
 
-int		ft_numlen(int num, int base)
+int		ft_numlen(unsigned long long num, int base)
 {
 	int i;
 
 	i = 0;
-	while (num > 0)
+	if (!num)
+		return (1);
+	while (num >= (unsigned long long)base)
 	{
 		num /= base;
 		i++;
 	}
-	return (i);
+	return (i + 1);
 }
 
-void	ft_putstr(char *str, int i)
-{
-	while (i > 0)
-		write(1, &str[--i], 1);
-}
-
-int		ft_itoabase(long long input, int base)
+int		ft_itoabase(unsigned long long input, int base)
 {
 	int		i;
-	int		remain;
+	int		size;
 	char	*out;
-	int		sign;
+	char	*chars;
 
-	out = (char *)malloc(sizeof(char) * (ft_numlen(input, base) + 1));
-	i = 0;
-	if (input == 0)
-		out[i++] = '0';
-	sign = (input < 0) ? -1 : 1;
-	while (input != 0)
+	chars = "0123456789abcdef";
+	size = ft_numlen(input, base);
+	out = (char *)malloc(sizeof(char) * (size + 1));
+	i = size - 1;
+	while (input >= (unsigned long long)base)
 	{
-		remain = (input < 0) ? -(input % base) : input % base;
-		if (remain < 10)
-			out[i++] = (char)(remain + '0');
-		else
-			out[i++] = (char)(remain - 10 + 'a');
+		out[i] = chars[input % base];
 		input /= base;
+		i--;
 	}
-	if (base == 10 && sign < 0)
-		out[i++] = '-';
-	out[i] = '\0';
-	ft_putstr(out, i);
+	out[i] = chars[input % base];
+	out[size] = '\0';
+	write(1, out, size);
 	free(out);
-	return (i);
+	return (size);
 }

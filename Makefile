@@ -6,16 +6,16 @@
 #    By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 16:09:15 by pmigeon           #+#    #+#              #
-#    Updated: 2018/10/09 16:06:35 by pmigeon          ###   ########.fr        #
+#    Updated: 2018/10/11 14:04:39 by pmigeon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES = ./b_printf.c ./ft_strlen.c ./format.c 
-HEADER = ./
+SOURCES = src/b_printf.c src/format.c 
+HEADER = includes/
 LIBNAME = libftprintf.a
 COMPILER = gcc
 FLAGS = -Wall -Werror -Wextra
-OFILE = ./b_printf.o ./ft_strlen.o ./format.o
+OFILE = ./b_printf.o ./format.o
 NAME = libftprintf.a
 
 all: $(NAME)

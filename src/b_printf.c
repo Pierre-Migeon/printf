@@ -6,11 +6,11 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 20:46:24 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/10 11:11:27 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/11 13:59:52 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "b_libft.h"
+#include "../includes/b_printf.h"
 
 int		ft_isflag(char c)
 {
@@ -31,7 +31,8 @@ int		ft_lputstr(const char *str)
 		return (6);
 	}
 	while (str[i])
-		write(1, &str[i++], 1);
+		i++;
+	write(1, str, i);
 	return (i);
 }
 
@@ -41,7 +42,7 @@ int		ft_lputchar(char c)
 	return (1);
 }
 
-int		ft_printf(const char *format, ...)
+int		b_printf(const char *format, ...)
 {
 	va_list	params;
 	int		i;
