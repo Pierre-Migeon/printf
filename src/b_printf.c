@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 20:46:24 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/11 13:59:52 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/11 14:11:12 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		ft_lputchar(char c)
 	return (1);
 }
 
-int		b_printf(const char *format, ...)
+int		ft_printf(const char *format, ...)
 {
 	va_list	params;
 	int		i;
