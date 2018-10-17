@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 11:40:09 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/17 11:08:23 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/17 13:09:50 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ int		ft_itoabase(unsigned long long input, int base)
 
 	chars = "0123456789abcdef";
 	size = ft_numlen(input, base);
-	out = (char *)malloc(sizeof(char) * (size + 1));
+	if(!(out = (char *)malloc(sizeof(char) * (size + 1))))
+		return (0);
 	i = size - 1;
 	while (input >= (unsigned long long)base)
 	{
