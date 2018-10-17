@@ -6,7 +6,7 @@
 /*   By: pmigeon <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/19 11:40:09 by pmigeon           #+#    #+#             */
-/*   Updated: 2018/10/11 14:01:21 by pmigeon          ###   ########.fr       */
+/*   Updated: 2018/10/11 14:44:02 by pmigeon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,21 @@ size_t	ft_strlen(const char *s)
 	return (length);
 }
 
+int		ft_router2(va_list params)
+{
+	int i;
+
+	i = va_arg(params, int);
+	if (i < 0)
+	{
+		if (i == -2147483648)
+			return (ft_lputstr("-2147483648"));
+		write(1, "-", 1);
+		return (1 + ft_itoabase(-i, 10));
+	}
+	return (ft_itoabase(i, 10));
+}
+
 int		ft_router(char c, va_list params)
 {
 	int	i;
@@ -32,17 +47,7 @@ int		ft_router(char c, va_list params)
 	else if (c == 'c')
 		return (ft_lputchar((char)va_arg(params, int)));
 	else if (c == 'd' || c == 'i')
-	{
-		i = va_arg(params, int);
-		if (i < 0)
-		{
-			if (i == -2147483648)
-				return (ft_lputstr("-2147483648"));
-			write(1, "-", 1);
-			return (1 + ft_itoabase(-i, 10));
-		}
-		return (ft_itoabase(i, 10));
-	}
+		ft_router2(params);
 	else if (c == 'p')
 	{
 		write(1, "0x", 2);
